@@ -25,7 +25,9 @@ Route::group([
     'prefix' => 'profile',
     'middleware' => 'auth',
 ], function () {
-    Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('profile');
+    Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('profile.main');
+    Route::get('/list_dispatch', [\App\Http\Controllers\UserController::class, 'list_dispatch'])->name('profile.list_dispatch');
+    Route::get('/list_dispatch/{id}', [\App\Http\Controllers\UserController::class, 'detail_dispatch_info'])->name('profile.list_dispatch_info');
 });
 
 
