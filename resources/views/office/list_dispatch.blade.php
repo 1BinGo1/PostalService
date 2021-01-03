@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{ route('profile.main') }}">Вернуться на главную</a><br><br>
+    <a href="{{ route('office.main') }}">Вернуться на главную</a><br><br>
+    <p>Список отправлений:</p>
     <table class="table table-bordered ">
         <tr>
             <th>№</th>
@@ -15,7 +16,7 @@
         @foreach($dispatch as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td><a href="{{ route('profile.list_dispatch_info', ['id' => $item->id]) }}">{{ $item->track_code }}</a></td>
+                <td><a href="{{ route('office.list_dispatch_info', ['id' => $item->id]) }}">{{ $item->track_code }}</a></td>
                 <td>{{ $item->created_at }}</td>
                 <td>{{ $item->status }}</td>
                 <td>{{ $item->city_dispatch }}</td>

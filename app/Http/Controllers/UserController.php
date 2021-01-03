@@ -2,29 +2,84 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dispatch;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
 
-    public function __construct()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $this->middleware('auth');
-    }
-
-    public function index(){
         return view('profile.index');
     }
 
-    public function list_dispatch(){
-        $dispatch = Dispatch::query()->where('user_id', auth()->user()->id)->get();
-        return view('profile.list_dispatch', compact('dispatch'));
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
-    public function detail_dispatch_info($dispatch_id){
-        $dispatch = Dispatch::query()->findOrFail($dispatch_id);
-        return view('profile.list_dispatch_info', compact('dispatch'));
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit()
+    {
+        return view('profile.edit');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

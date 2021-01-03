@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,21 +16,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group([
+    'prefix' => 'office',
+    'middleware' => 'auth',
+], function () {
+    Route::get('/', [OfficeController::class, 'index'])->name('office.main');
+    /*Route::get('/list_dispatch', [OfficeController::class, 'list_dispatch'])->name('office.list_dispatch');*/
+    Route::get('/list_dispatch/{id}', [OfficeController::class, 'detail_dispatch_info'])->name('office.list_dispatch_info');
+});
 
 Route::group([
     'prefix' => 'profile',
     'middleware' => 'auth',
 ], function () {
-    Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('profile.main');
-    Route::get('/list_dispatch', [\App\Http\Controllers\UserController::class, 'list_dispatch'])->name('profile.list_dispatch');
-    Route::get('/list_dispatch/{id}', [\App\Http\Controllers\UserController::class, 'detail_dispatch_info'])->name('profile.list_dispatch_info');
+    Route::get('/', [UserController::class, 'index'])->name('profile.index');
+    Route::get('/edit', [UserController::class, 'edit'])->name('profile.edit');
 });
+
+
+
+
+
 
 
