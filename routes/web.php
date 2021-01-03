@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group([
+    'prefix' => 'profile',
+    'middleware' => 'auth',
+], function () {
+    Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('profile');
+});
+
 
