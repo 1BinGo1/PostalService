@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dispatch extends Model
+class DispatchHistory extends Model
 {
     use HasFactory;
-    protected $table = 'dispatch';
+    protected $table = "dispatch_history";
 
     /**
      * The attributes that are mass assignable.
@@ -16,17 +16,10 @@ class Dispatch extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'track_code',
+        'dispatch_id',
         'status',
         'city_dispatch',
         'city_destination',
-        'price',
     ];
-
-    public function history()
-    {
-        return $this->hasMany(DispatchHistory::class);
-    }
 
 }
