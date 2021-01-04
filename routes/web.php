@@ -29,8 +29,8 @@ Route::group([
     'middleware' => 'auth',
 ], function () {
     Route::get('/', [OfficeController::class, 'index'])->name('office.main');
-    /*Route::get('/list_dispatch', [OfficeController::class, 'list_dispatch'])->name('office.list_dispatch');*/
-    Route::get('/list_dispatch/{id}', [OfficeController::class, 'detail_dispatch_info'])->name('office.list_dispatch_info');
+    Route::get('/list_dispatch/{user_id}', [OfficeController::class, 'list_dispatch'])->name('office.list_dispatch');
+    Route::get('/list_dispatch_info/{dispatch_id}', [OfficeController::class, 'detail_dispatch_info'])->name('office.list_dispatch_info');
 });
 
 Route::group([

@@ -23,6 +23,10 @@
         </div>
     </div>-->
 
-@livewire('search')
+@livewire('search-user')
+
+@if (Gate::allows('admin', \App\Models\User::class))
+    @livewire('search-dispatch-all')
+@endif
 
 @endsection
