@@ -3,7 +3,8 @@
 @section('content')
     <a href="{{ route('home') }}">Вернуться на главную</a><br><br>
     <p>Список отправлений:</p>
-    <table class="table table-bordered ">
+    @livewire('search')
+<!--    <table class="table table-bordered ">
         <tr>
             <th>№</th>
             <th>Трек-код</th>
@@ -24,5 +25,5 @@
                 <td>{{ $item->price }}</td>
             </tr>
         @endforeach
-    </table>
+    </table>-->
 @endsection

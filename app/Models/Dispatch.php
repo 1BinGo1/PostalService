@@ -16,7 +16,6 @@ class Dispatch extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
         'track_code',
         'status',
         'city_dispatch',

@@ -39,6 +39,7 @@ Route::group([
 ], function () {
     Route::get('/', [UserController::class, 'index'])->name('profile.index');
     Route::get('/edit', [UserController::class, 'edit'])->name('profile.edit');
+    Route::patch('/update', [UserController::class, 'update'])->name('profile.update');
 });
 
 
