@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -26,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('profile.create');
     }
 
     /**
@@ -37,7 +38,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->admin = $request->input('admin');
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+        return redirect()
+            ->route('home')
+            ->with('success', 'Новый пользователь успешно создан');
     }
 
     /**
@@ -89,6 +99,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::query()->findOrFail($id);
+        $user->delete();
+        return redirect()->route('home')->with('success','Пользователь успешно удален');
     }
 }

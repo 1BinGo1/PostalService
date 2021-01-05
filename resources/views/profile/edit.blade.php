@@ -2,21 +2,20 @@
 
 @section('content')
     <a href="{{ route('profile.index') }}">Вернуться к профилю</a>
-    <p>Edit profile</p>
+    <br>
+    <h1>Edit profile</h1>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('profile.update') }}" method="post">
         @csrf
         @method('PATCH')
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <div class="form-group">
             <label for="first_name">First name</label>
             <input type="text" name="first_name" id="first_name" class="form-control" value="{{ old('first_name') ?? auth()->user()->first_name }}">

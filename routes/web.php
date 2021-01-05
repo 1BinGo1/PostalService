@@ -40,10 +40,10 @@ Route::group([
     Route::get('/', [UserController::class, 'index'])->name('profile.index');
     Route::get('/edit', [UserController::class, 'edit'])->name('profile.edit');
     Route::patch('/update', [UserController::class, 'update'])->name('profile.update');
+    Route::get('/create', [UserController::class, 'create'])->name('profile.create');
+    Route::post('/store', [UserController::class, 'store'])->name('profile.store');
+    Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('profile.destroy');
 });
-
-
-
 
 
 

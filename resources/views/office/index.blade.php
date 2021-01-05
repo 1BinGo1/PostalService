@@ -3,5 +3,5 @@
 @section('content')
     <a href="{{ route('home') }}">Вернуться на главную</a><br><br>
     <p>Список отправлений:</p>
-    @livewire('search-dispatch-all')
+    @livewire('search-dispatch', ['user' => $user])
 @endsection

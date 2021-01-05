@@ -1,7 +1,7 @@
 <div>
     <div class="form-group">
-        <label for="search">Search dispatch</label>
-        <input wire:model="search_dispatch_history" type="text" class="form-control col-6" id="search" placeholder="Search dispatch...">
+        <label for="search_dispatch_history">Search dispatch</label>
+        <input wire:model="search_dispatch_history" type="text" class="form-control col-6" id="search_dispatch_history" placeholder="Search dispatch...">
     </div>
     <table class="table table-bordered ">
         <tr>

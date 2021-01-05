@@ -15,7 +15,8 @@ class OfficeController extends Controller
 
     public function index(){
         $dispatch = Dispatch::query()->where('user_id', auth()->user()->id)->get();
-        return view('office.index', compact('dispatch'));
+        $user = User::query()->findOrFail(auth()->user()->id);
+        return view('office.index', compact('dispatch', 'user'));
     }
 
     public function list_dispatch($user_id){
@@ -27,6 +28,14 @@ class OfficeController extends Controller
     public function detail_dispatch_info($dispatch_id){
         $dispatch = Dispatch::query()->findOrFail($dispatch_id);
         return view('office.list_dispatch_info', compact('dispatch'));
+    }
+
+    public function create(){
+        return view('office.create');
+    }
+
+    public function store(Request $request){
+
     }
 
 

@@ -1,9 +1,18 @@
 <div>
     <div class="form-group">
-        <label for="search">Search dispatch</label>
-        <input wire:model="search_dispatch_all" type="text" class="form-control col-6" id="search" placeholder="Search dispatch...">
+        <label for="search_dispatch_all">Search dispatch</label>
+        <input wire:model="search_dispatch_all" type="text" class="form-control col-6" id="search_dispatch_all" placeholder="Search dispatch...">
     </div>
-    <table class="table table-bordered ">
+    <div class="form-group">
+        <label for="filter">Filter by price dispatch</label>
+        <select class="form-control col-3" id="filter_price" wire:change="edit_filter('{{ $filter_price }}')">
+            <option @if ($filter_price == "asc") selected @endif >По возрастанию</option>
+            <option @if ($filter_price == "desc") selected @endif>По убыванию</option>
+        </select>
+        <br>
+        <a href="{{ route('profile.create') }}" class="btn btn-primary">Create new dispatch</a>
+    </div>
+    <table class="table table-bordered">
         <tr>
             <th>№</th>
             <th>Трек-код</th>
