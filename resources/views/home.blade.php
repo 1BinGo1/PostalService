@@ -1,32 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-
-<!--    <div class="container">
-
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
-                    </div>
-                </div>
-            </div>
+    <div class="card">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active link_block" id="block_dispatch" href="#">Список отправлений</a>
+                </li>
+                @can('admin', \App\Models\User::class)
+                    <li class="nav-item">
+                        <a class="nav-link link_block" id="block_users" href="#">Пользователи</a>
+                    </li>
+                @endcan
+            </ul>
         </div>
-    </div>-->
-
-@livewire('search-user')
-
-@can('admin', \App\Models\User::class)
-    @livewire('search-dispatch-all')
-@endcan
-
+        <div class="card-body block_data" id="list_dispatch">
+            @livewire('search-dispatch-all')
+        </div>
+        @can('admin', \App\Models\User::class)
+            <div class="card-body hide-block block_data" id="list_users">
+                @livewire('search-user')
+            </div>
+        @endcan
+    </div>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/main.js') }}"></script>
+@endpush

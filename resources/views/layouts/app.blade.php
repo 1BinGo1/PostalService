@@ -9,10 +9,17 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
-
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .hide-block{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -65,14 +72,15 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" id="main">
             <div class="container">
                 @yield('content')
             </div>
         </main>
     </div>
 
-    <script src="{{ asset('js/app.js') }}"></script>
     @livewireScripts
+    @stack('scripts')
+
 </body>
 </html>

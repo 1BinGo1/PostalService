@@ -2,7 +2,7 @@
 
 @section('content')
     <a href="{{ route('home') }}">Вернуться на главную</a><br><br>
-    <div class="card border-dark">
+    <div class="card">
         <div class="card-header">Profile</div>
         <div class="card-body text-dark">
             <p class="card-title">First name: {{ auth()->user()->first_name }}</p>
