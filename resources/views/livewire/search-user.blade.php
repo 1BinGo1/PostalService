@@ -29,15 +29,17 @@
                 @endphp
                 <td>{{ $all_price }}</td>
                 @can('admin', \App\Models\User::class)
-                    <td>
-                        <form action="{{ route('profile.destroy', ['id' => $user->id]) }}"
-                              method="post" onsubmit="return confirm('Удалить этого пользователя?')"
-                              class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" class="btn btn-danger" value="Удалить">
-                        </form>
-                    </td>
+                    @if ($user->id != auth()->user()->id)
+                        <td>
+                            <form action="{{ route('profile.destroy', ['id' => $user->id]) }}"
+                                  method="post" onsubmit="return confirm('Удалить этого пользователя?')"
+                                  class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" class="btn btn-danger" value="Remove">
+                            </form>
+                        </td>
+                    @endif
                 @endcan
             </tr>
         @endforeach

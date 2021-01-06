@@ -30,13 +30,4 @@ class OfficeController extends Controller
         return view('office.list_dispatch_info', compact('dispatch'));
     }
 
-    public function create(){
-        return view('office.create');
-    }
-
-    public function store(Request $request){
-
-    }
-
-
 }

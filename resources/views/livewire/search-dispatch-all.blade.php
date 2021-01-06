@@ -10,7 +10,7 @@
             <option @if ($filter_price == "desc") selected @endif>По убыванию</option>
         </select>
         <br>
-        <a href="{{ route('profile.create') }}" class="btn btn-primary">Create new dispatch</a>
+        <a href="{{ route('dispatch.create') }}" class="btn btn-primary">Create new dispatch</a>
     </div>
     <table class="table table-bordered">
         <tr>
@@ -31,6 +31,18 @@
                 <td>{{ $item->city_dispatch }}</td>
                 <td>{{ $item->city_destination }}</td>
                 <td>{{ $item->price }}</td>
+                <td>
+                    <a href="{{ route('dispatch.edit', ['id' => $item->id]) }}" class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <form action="{{ route('dispatch.destroy', ['id' => $item->id]) }}"
+                          method="post" onsubmit="return confirm('Удалить эту запись?')"
+                          class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" class="btn btn-danger" value="Remove">
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>

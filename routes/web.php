@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DispatchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\UserController;
@@ -31,6 +32,18 @@ Route::group([
     Route::get('/', [OfficeController::class, 'index'])->name('office.main');
     Route::get('/list_dispatch/{user_id}', [OfficeController::class, 'list_dispatch'])->name('office.list_dispatch');
     Route::get('/list_dispatch_info/{dispatch_id}', [OfficeController::class, 'detail_dispatch_info'])->name('office.list_dispatch_info');
+
+    Route::group([
+        'prefix' => 'dispatch',
+        'middleware' => 'auth',
+    ], function () {
+        Route::get('/create', [DispatchController::class, 'create'])->name('dispatch.create');
+        Route::post('/store', [DispatchController::class, 'store'])->name('dispatch.store');
+        Route::get('/edit/{id}', [DispatchController::class, 'edit'])->name('dispatch.edit');
+        Route::patch('/update/{id}', [DispatchController::class, 'update'])->name('dispatch.update');
+        Route::delete('/destroy/{id}', [DispatchController::class, 'destroy'])->name('dispatch.destroy');
+    });
+
 });
 
 Route::group([

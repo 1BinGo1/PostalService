@@ -22,4 +22,8 @@ class DispatchHistory extends Model
         'city_destination',
     ];
 
+    protected $casts = [
+        'dispatch_id' => 'integer',
+    ];
+
 }

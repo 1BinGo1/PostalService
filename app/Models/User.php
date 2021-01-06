@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -32,7 +33,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
+        'email_verified_at',
         'remember_token',
     ];
 
@@ -42,11 +43,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
+        'admin' => 'boolean',
         'email_verified_at' => 'datetime',
     ];
 
     public function dispatch(){
         return $this->hasMany(Dispatch::class);
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
     }
 
 }

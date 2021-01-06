@@ -36,15 +36,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $user = new User();
-        $user->admin = $request->input('admin');
-        $user->first_name = $request->input('first_name');
-        $user->last_name = $request->input('last_name');
-        $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-        $user->save();
+        User::query()->create($request->except('_method', '_token'));
         return redirect()
             ->route('home')
             ->with('success', 'Новый пользователь успешно создан');
@@ -81,11 +75,7 @@ class UserController extends Controller
      */
     public function update(UserRequest $request)
     {
-        $user = User::query()->findOrFail(auth()->user()->id);
-        $user->first_name = $request->input('first_name');
-        $user->last_name = $request->input('last_name');
-        $user->email = $request->input('email');
-        $user->update();
+        User::query()->where('id', auth()->user()->id)->update($request->except('_method', '_token'));
         return redirect()
             ->route('profile.index')
             ->with('success', 'Профиль успешно обновлен');
@@ -103,4 +93,5 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('home')->with('success','Пользователь успешно удален');
     }
+
 }
