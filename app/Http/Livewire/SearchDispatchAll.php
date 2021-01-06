@@ -18,7 +18,7 @@ class SearchDispatchAll extends Component
             ->orWhere('city_dispatch','like', '%' . $this->search_dispatch_all . '%')
             ->orWhere('city_destination','like', '%' . $this->search_dispatch_all . '%')
             ->orderBy('price', $this->filter_price)
-            ->get();
+            ->paginate(3);
         return view('livewire.search-dispatch-all', compact('dispatch') );
     }
 

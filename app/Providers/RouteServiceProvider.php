@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Dispatch;
+use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -47,6 +49,9 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
+
+        Route::model('dispatch', Dispatch::class);
+        Route::model('user', User::class);
     }
 
     /**

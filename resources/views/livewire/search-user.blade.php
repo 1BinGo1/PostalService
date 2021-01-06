@@ -31,7 +31,7 @@
                 @can('admin', \App\Models\User::class)
                     @if ($user->id != auth()->user()->id)
                         <td>
-                            <form action="{{ route('profile.destroy', ['id' => $user->id]) }}"
+                            <form action="{{ route('profile.destroy', ['user' => $user->id]) }}"
                                   method="post" onsubmit="return confirm('Удалить этого пользователя?')"
                                   class="d-inline">
                                 @csrf
@@ -44,4 +44,5 @@
             </tr>
         @endforeach
     </table>
+    {{ $users->onEachSide(1)->links() }}
 </div>

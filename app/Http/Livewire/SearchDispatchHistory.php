@@ -15,7 +15,7 @@ class SearchDispatchHistory extends Component
             ->where('status','like', '%' . $this->search_dispatch_history . '%')
             ->orWhere('city_dispatch','like', '%' . $this->search_dispatch_history . '%')
             ->orWhere('city_destination','like', '%' . $this->search_dispatch_history . '%')
-            ->get();
+            ->paginate(3);
         return view('livewire.search-dispatch-history', compact('dispatch_history'));
     }
 

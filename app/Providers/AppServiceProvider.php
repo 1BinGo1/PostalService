@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Dispatch;
 use App\Models\DispatchHistory;
+use App\Observers\DispatchObserver;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,16 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Dispatch::updating(function ($dispatch){
-            $old_dispatch = Dispatch::query()->findOrFail($dispatch->id);
-            if ($old_dispatch->status != $dispatch->status){
-                DispatchHistory::query()->create([
-                    'dispatch_id' => $dispatch->id,
-                    'status' => $dispatch->status,
-                    'city_dispatch' => $dispatch->city_dispatch,
-                    'city_destination' => $dispatch->city_destination
-                ]);
-            }
-        });
+        Paginator::useBootstrap();
+        Dispatch::observe(DispatchObserver::class);
     }
 }

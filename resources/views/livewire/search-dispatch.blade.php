@@ -23,10 +23,10 @@
                 <td>{{ $item->city_destination }}</td>
                 <td>{{ $item->price }}</td>
                 <td>
-                    <a href="{{ route('dispatch.edit', ['id' => $item->id]) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('dispatch.edit', ['dispatch' => $item->id]) }}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                    <form action="{{ route('dispatch.destroy', ['id' => $item->id]) }}"
+                    <form action="{{ route('dispatch.destroy', ['dispatch' => $item->id]) }}"
                           method="post" onsubmit="return confirm('Удалить эту запись?')"
                           class="d-inline">
                         @csrf
@@ -37,4 +37,5 @@
             </tr>
         @endforeach
     </table>
+    {{ $dispatch->onEachSide(1)->links() }}
 </div>

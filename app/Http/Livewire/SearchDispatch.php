@@ -19,7 +19,7 @@ class SearchDispatch extends Component
                     ->orWhere('status','like', '%' . $this->search_dispatch . '%')
                     ->orWhere('city_dispatch','like', '%' . $this->search_dispatch . '%')
                     ->orWhere('city_destination','like', '%' . $this->search_dispatch . '%');
-            })->get();
+            })->paginate(3);
         return view('livewire.search-dispatch', compact('dispatch') );
     }
 

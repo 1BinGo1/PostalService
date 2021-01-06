@@ -39,9 +39,9 @@ Route::group([
     ], function () {
         Route::get('/create', [DispatchController::class, 'create'])->name('dispatch.create');
         Route::post('/store', [DispatchController::class, 'store'])->name('dispatch.store');
-        Route::get('/edit/{id}', [DispatchController::class, 'edit'])->name('dispatch.edit');
-        Route::patch('/update/{id}', [DispatchController::class, 'update'])->name('dispatch.update');
-        Route::delete('/destroy/{id}', [DispatchController::class, 'destroy'])->name('dispatch.destroy');
+        Route::delete('/destroy/{dispatch}', [DispatchController::class, 'destroy'])->name('dispatch.destroy');
+        Route::get('/edit/{dispatch}', [DispatchController::class, 'edit'])->name('dispatch.edit');
+        Route::patch('/update/{dispatch}', [DispatchController::class, 'update'])->name('dispatch.update');
     });
 
 });
@@ -55,8 +55,9 @@ Route::group([
     Route::patch('/update', [UserController::class, 'update'])->name('profile.update');
     Route::get('/create', [UserController::class, 'create'])->name('profile.create');
     Route::post('/store', [UserController::class, 'store'])->name('profile.store');
-    Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/destroy/{user}', [UserController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 
 

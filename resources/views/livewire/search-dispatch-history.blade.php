@@ -21,4 +21,5 @@
             </tr>
         @endforeach
     </table>
+    {{ $dispatch_history->onEachSide(1)->links() }}
 </div>

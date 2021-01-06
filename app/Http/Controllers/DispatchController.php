@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DispatchRequest;
 use App\Models\Dispatch;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 
 class DispatchController extends Controller
 {
@@ -20,21 +21,20 @@ class DispatchController extends Controller
             ->with('success', 'Письмо успешно создано');
     }
 
-    public function edit($id){
-        $dispatch = Dispatch::query()->findOrFail($id);
+    public function edit(Dispatch $dispatch){
         return view('dispatch.edit', compact('dispatch'));
     }
 
-    public function update(DispatchRequest $request, $id){
-        Dispatch::query()->where('id', $id)->update($request->except('_method', '_token'));
+    public function update(DispatchRequest $request, Dispatch $dispatch){
+        //Dispatch::query()->where('id', $id)->update($request->except('_method', '_token'));
+        $dispatch->update($request->except('_method', '_token'));
         return redirect()
             ->route('office.main')
             ->with('success', 'Письмо успешно обновленно');
     }
 
-    public function destroy($id)
+    public function destroy(Dispatch $dispatch)
     {
-        $dispatch = Dispatch::query()->findOrFail($id);
         $dispatch->delete();
         return redirect()->route('office.main')->with('success','Запись успешно удалена');
     }

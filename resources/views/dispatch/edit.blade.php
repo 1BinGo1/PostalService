@@ -13,7 +13,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('dispatch.update', ['id' => $dispatch->id]) }}" method="post">
+    <form action="{{ route('dispatch.update', ['dispatch' => $dispatch->id]) }}" method="post">
         @csrf
         @method('PATCH')
         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">

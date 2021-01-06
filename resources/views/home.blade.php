@@ -25,8 +25,8 @@
 
 @livewire('search-user')
 
-@if (Gate::allows('admin', \App\Models\User::class))
+@can('admin', \App\Models\User::class)
     @livewire('search-dispatch-all')
-@endif
+@endcan
 
 @endsection
