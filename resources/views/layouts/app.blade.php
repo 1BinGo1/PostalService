@@ -64,7 +64,6 @@
                                         @csrf
                                     </form>
                                 </div>
-
                             </li>
                         @endguest
                     </ul>
@@ -74,6 +73,14 @@
 
         <main class="py-4" id="main">
             <div class="container">
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible mt-4" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Закрыть">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        {{ $message }}
+                    </div>
+                @endif
                 @yield('content')
             </div>
         </main>

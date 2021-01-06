@@ -18,7 +18,7 @@ class DispatchController extends Controller
         Dispatch::query()->create($request->except('_method', '_token'));
         return redirect()
             ->route('home')
-            ->with('success', 'Письмо успешно создано');
+            ->with('success', 'Запись успешно создана!');
     }
 
     public function edit(Dispatch $dispatch){
@@ -30,13 +30,13 @@ class DispatchController extends Controller
         $dispatch->update($request->except('_method', '_token'));
         return redirect()
             ->route('office.main')
-            ->with('success', 'Письмо успешно обновленно');
+            ->with('success', 'Запись успешно обновленна!');
     }
 
     public function destroy(Dispatch $dispatch)
     {
         $dispatch->delete();
-        return redirect()->route('office.main')->with('success','Запись успешно удалена');
+        return redirect()->route('office.main')->with('success','Запись успешно удалена!');
     }
 
 }

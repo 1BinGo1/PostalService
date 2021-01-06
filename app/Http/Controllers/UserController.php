@@ -41,7 +41,7 @@ class UserController extends Controller
         User::query()->create($request->except('_method', '_token'));
         return redirect()
             ->route('home')
-            ->with('success', 'Новый пользователь успешно создан');
+            ->with('success', 'Новый пользователь успешно создан!');
     }
 
     /**
@@ -78,7 +78,7 @@ class UserController extends Controller
         User::query()->where('id', auth()->user()->id)->update($request->except('_method', '_token'));
         return redirect()
             ->route('profile.index')
-            ->with('success', 'Профиль успешно обновлен');
+            ->with('success', 'Профиль успешно обновлен!');
     }
 
     /**
@@ -90,7 +90,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('home')->with('success','Пользователь успешно удален');
+        return redirect()->route('home')->with('success','Пользователь успешно удален!');
     }
 
 }
