@@ -15,6 +15,7 @@
     @endif
     <form action="{{ route('profile.store') }}" method="post">
         @csrf
+        <input type="hidden" name="api_key" value="">
         <div class="form-group">
             <label for="admin">Role</label>
             <select class="form-control" name="admin" id="admin">

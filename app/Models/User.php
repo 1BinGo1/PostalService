@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Faker\Provider\Miscellaneous;
 
 class User extends Authenticatable
 {
@@ -24,6 +25,7 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'email',
+        'api_key',
         'password',
     ];
 
@@ -54,6 +56,13 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function setApiKeyAttribute($value = null)
+    {
+        if ($value == null || $value == ''){
+            $this->attributes['api_key'] = Miscellaneous::md5();
+        }
     }
 
 }

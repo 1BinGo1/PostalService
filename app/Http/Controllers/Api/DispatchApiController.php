@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 class DispatchApiController extends Controller
 {
 
-
     public function index(){
         return response()->json(Dispatch::all(), 200);
     }

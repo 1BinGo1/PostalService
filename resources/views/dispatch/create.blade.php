@@ -15,9 +15,6 @@
     @endif
     <form action="{{ route('dispatch.store') }}" method="post">
         @csrf
-<!--        <input type="hidden" name="user_id">
-        <input type="hidden" name="track_code">
-        <input type="hidden" name="status">-->
         <div class="form-group">
             <label for="city_dispatch">City dispatch</label>
             <input type="text" name="city_dispatch" id="city_dispatch" class="form-control" value="{{ old('city_dispatch')}}">
