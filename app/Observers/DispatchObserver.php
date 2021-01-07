@@ -8,7 +8,7 @@ use App\Models\DispatchHistory;
 class DispatchObserver
 {
 
-    public function saving(Dispatch $dispatch){
+    public function updating(Dispatch $dispatch){
         $old_dispatch = Dispatch::query()->findOrFail($dispatch->id);
         if ($old_dispatch->status != $dispatch->status){
             DispatchHistory::query()->create([

@@ -35,7 +35,6 @@ Route::group([
 
     Route::group([
         'prefix' => 'dispatch',
-        'middleware' => 'auth',
     ], function () {
         Route::get('/create', [DispatchController::class, 'create'])->name('dispatch.create');
         Route::post('/store', [DispatchController::class, 'store'])->name('dispatch.store');

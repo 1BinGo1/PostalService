@@ -50,7 +50,7 @@ final class Versions
   'guzzlehttp/guzzle' => '7.2.0@0aa74dfb41ae110835923ef10a9d803a22d50e79',
   'guzzlehttp/promises' => '1.4.0@60d379c243457e073cff02bc323a2a86cb355631',
   'guzzlehttp/psr7' => '1.7.0@53330f47520498c0ae1f61f7e2c90f55690c06a3',
-  'laravel/framework' => 'v8.20.1@b5d8573ab16027867eaa1ac148893833434f9b02',
+  'laravel/framework' => 'v8.21.0@a61cab167c35f465a923737ee6e6fb99cd5fde88',
   'laravel/tinker' => 'v2.5.0@45884b526e10a88a1b179fa1a1a24d5468c668c2',
   'league/commonmark' => '1.5.7@11df9b36fd4f1d2b727a73bf14931d81373b9a54',
   'league/flysystem' => '1.1.3@9be3b16c877d477357c015cec057548cf9b2a14a',
@@ -111,7 +111,7 @@ final class Versions
   'filp/whoops' => '2.9.1@307fb34a5ab697461ec4c9db865b20ff2fd40771',
   'hamcrest/hamcrest-php' => 'v2.0.1@8c3d0a3f6af734494ad8f6fbbee0ba92422859f3',
   'laravel/sail' => 'v0.0.5@d9b0575ece889a35b9741789452c1c7abca5bc2f',
-  'laravel/ui' => 'v3.1.0@444072cb2f8baaa15172c5cde2bd30d188c3b7e7',
+  'laravel/ui' => 'v3.2.0@a1f82c6283c8373ea1958b8a27c3d5c98cade351',
   'mockery/mockery' => '1.4.2@20cab678faed06fac225193be281ea0fddb43b93',
   'myclabs/deep-copy' => '1.10.2@776f831124e9c62e1a2c601ecc52e776d8bb7220',
   'nunomaduro/collision' => 'v5.1.0@7c2b95589bf81e274e61e47f7672a1b2c3e06eaa',
@@ -144,7 +144,7 @@ final class Versions
   'sebastian/type' => '2.3.1@81cd61ab7bbf2de744aba0ea61fae32f721df3d2',
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'theseer/tokenizer' => '1.2.0@75a63c33a8577608444246075ea0af0d052e452a',
-  'laravel/laravel' => 'dev-master@6e0b7e7aa1a4464486c48c84b81990fc2a91aee3',
+  'laravel/laravel' => 'dev-main@59976d063d9bf5427d7d30ba9cdaf9b654aa4d0f',
 );
 
     private function __construct()

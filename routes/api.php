@@ -23,12 +23,9 @@ Route::group([
     'prefix' => 'dispatch',
 ], function () {
     Route::get('/', [DispatchApiController::class, 'index'])->name('api.dispatch.index');
-    Route::get('/{id}', [DispatchApiController::class, 'indexById'])->name('api.dispatch.index_by_id');
+    Route::get('/{dispatch}', [DispatchApiController::class, 'indexById'])->name('api.dispatch.index_by_id');
     Route::post('/store', [DispatchApiController::class, 'store'])->name('api.dispatch.store');
-    /*Route::get('/edit', [UserController::class, 'edit'])->name('profile.edit');
-    Route::patch('/update', [UserController::class, 'update'])->name('profile.update');
-    Route::get('/create', [UserController::class, 'create'])->name('profile.create');
-    Route::post('/store', [UserController::class, 'store'])->name('profile.store');
-    Route::delete('/destroy/{user}', [UserController::class, 'destroy'])->name('profile.destroy');*/
+    Route::put('/update/{dispatch}', [DispatchApiController::class, 'update'])->name('api.dispatch.update');
+    Route::delete('/destroy/{dispatch}', [DispatchApiController::class, 'destroy'])->name('api.dispatch.destroy');
 });
 

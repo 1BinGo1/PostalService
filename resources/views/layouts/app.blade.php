@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <style>
         .hide-block{
             display: none;
@@ -86,6 +84,7 @@
         </main>
     </div>
 
+    <script src="{{ asset('js/app.js') }}"></script>
     @livewireScripts
     @stack('scripts')
 
