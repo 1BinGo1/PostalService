@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => "Редактирование пользователя"])
 
 @section('content')
     <a href="{{ route('profile.index') }}">Вернуться к профилю</a>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => "Редактирование отправления"])
 
 @section('content')
     <a href="{{ route('office.main') }}">Вернуться к списку отправлений</a>
