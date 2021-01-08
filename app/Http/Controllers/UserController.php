@@ -94,4 +94,13 @@ class UserController extends Controller
         return redirect()->route('home')->with('success','Пользователь успешно удален!');
     }
 
+    public function change_api_key(Request $request, User $user){
+        $user->update([
+            'api_key' => Miscellaneous::md5()
+        ]);
+        return redirect()
+            ->route('profile.index')
+            ->with('success', 'Api key успешно изменен!');
+    }
+
 }

@@ -63,6 +63,9 @@ class User extends Authenticatable
         if ($value == null || $value == ''){
             $this->attributes['api_key'] = Miscellaneous::md5();
         }
+        else{
+            $this->attributes['api_key'] = $value;
+        }
     }
 
 }

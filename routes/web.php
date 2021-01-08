@@ -51,5 +51,6 @@ Route::group([
     Route::get('/create', [UserController::class, 'create'])->name('profile.create');
     Route::post('/store', [UserController::class, 'store'])->name('profile.store');
     Route::delete('/destroy/{user}', [UserController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/change_api_key/{user}', [UserController::class, 'change_api_key'])->name('profile.change_api_key');
 });
 
