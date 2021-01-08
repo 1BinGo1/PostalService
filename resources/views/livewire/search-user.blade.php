@@ -1,16 +1,16 @@
 <div>
     <div class="form-group">
-        <label for="search">Search users</label>
-        <input wire:model="search_user" type="text" class="form-control col-6" id="search" placeholder="Search users...">
+        <label for="search">{{ __('Search users') }}</label>
+        <input wire:model="search_user" type="text" class="form-control col-6" id="search" placeholder="{{ __('Search users') }}...">
     </div>
-    <a href="{{ route('profile.create') }}" class="btn btn-primary">Create new user</a><br><br>
+    <a href="{{ route('profile.create') }}" class="btn btn-primary">{{ __('Create a new user') }}</a><br><br>
     <table class="table table-bordered ">
         <tr>
             <th>№</th>
-            <th>Фамилия Имя</th>
+            <th>{{ __('Last name') }} {{ __('First name') }}</th>
             <th>Email</th>
-            <th>Количество отправлений</th>
-            <th>Сумма стоимости всех отправлений</th>
+            <th>{{ __('Quantity dispatch') }}</th>
+            <th>{{ __('Sum price the all dispatch') }}</th>
         </tr>
         @foreach($users as $user)
             <tr>
@@ -32,11 +32,11 @@
                     @if ($user->id != auth()->user()->id)
                         <td>
                             <form action="{{ route('profile.destroy', ['user' => $user->id]) }}"
-                                  method="post" onsubmit="return confirm('Удалить этого пользователя?')"
+                                  method="post" onsubmit="return confirm({{ __('Remove this user?') }})"
                                   class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="btn btn-danger" value="Remove">
+                                <input type="submit" class="btn btn-danger" value="{{ __('Remove') }}">
                             </form>
                         </td>
                     @endif

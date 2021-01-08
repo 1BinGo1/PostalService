@@ -1,7 +1,7 @@
-@extends('layouts.app', ['title' => "Список отправлений"])
+@extends('layouts.app', ['title' => __('Dispatch list')])
 
 @section('content')
-    <a href="{{ route('home') }}">Вернуться на главную</a><br><br>
-    <p>Список отправлений:</p>
+    <a href="{{ route('home') }}">{{ __('Go back to the main page') }}</a><br><br>
+    <p>{{ __('Dispatch list') }}:</p>
     @livewire('search-dispatch', ['user' => $user])
 @endsection

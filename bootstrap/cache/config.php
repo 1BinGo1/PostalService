@@ -7,7 +7,7 @@
     'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
-    'locale' => 'en',
+    'locale' => 'ru',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'key' => 'base64:6CAwFTpgXrB02jjyFRg7kN+X9KEqjaRhAucS1Ry7IEA=',

@@ -1,9 +1,9 @@
-@extends('layouts.app', ['title' => "Редактирование отправления"])
+@extends('layouts.app', ['title' => __('Edit dispatch')])
 
 @section('content')
-    <a href="{{ route('office.main') }}">Вернуться к списку отправлений</a>
+    <a href="{{ route('office.main') }}">{{ __('Go back to the list dispatch') }}</a>
     <br><br>
-    <h1>Edit dispatch</h1>
+    <h1>{{ __('Edit dispatch') }}</h1>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -19,26 +19,26 @@
         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
         <input type="hidden" name="track_code" value="{{ $dispatch->track_code }}">
         <div class="form-group">
-            <label for="status">Status</label>
+            <label for="status">{{ __('Status') }}</label>
             <select class="form-control" name="status" id="status">
-                <option value="expects" @if($dispatch->status === 'expects') selected @endif>Ожидает отправки</option>
-                <option value="sent" @if($dispatch->status === 'sent') selected @endif>Отправлен</option>
-                <option value="delivered" @if($dispatch->status === 'delivered') selected @endif>Доставлен</option>
-                <option value="issued" @if($dispatch->status === 'issued') selected @endif>Выдан получателю</option>
+                <option value="Expects" @if($dispatch->status === 'Expects') selected @endif>{{ __('Expects') }}</option>
+                <option value="Sent" @if($dispatch->status === 'Sent') selected @endif>{{ __('Sent') }}</option>
+                <option value="Delivered" @if($dispatch->status === 'Delivered') selected @endif>{{ __('Delivered') }}</option>
+                <option value="Issued" @if($dispatch->status === 'Issued') selected @endif>{{ __('Issued') }}</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="city_dispatch">City dispatch</label>
+            <label for="city_dispatch">{{ __('City dispatch') }}</label>
             <input type="text" name="city_dispatch" id="city_dispatch" class="form-control" value="{{ old('city_dispatch') ?? $dispatch->city_dispatch}}">
         </div>
         <div class="form-group">
-            <label for="city_destination">City destination</label>
+            <label for="city_destination">{{ __('City destination') }}</label>
             <input type="text" name="city_destination" id="city_destination" class="form-control" value="{{ old('city_destination') ?? $dispatch->city_destination }}">
         </div>
         <div class="form-group">
-            <label for="price">Price</label>
+            <label for="price">{{ __('Price') }}</label>
             <input type="text" name="price" id="price" class="form-control" value="{{ old('price') ?? $dispatch->price }}">
         </div>
-        <button type="submit" class="btn btn-primary">Edit</button>
+        <button type="submit" class="btn btn-primary">{{ __('Edit dispatch') }}</button>
     </form>
 @endsection

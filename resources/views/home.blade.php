@@ -1,15 +1,15 @@
-@extends('layouts.app', ['title' => "Главная"])
+@extends('layouts.app', ['title' => __('Main')])
 
 @section('content')
     <div class="card">
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active link_block" id="block_dispatch" href="#">Список отправлений</a>
+                    <a class="nav-link active link_block" id="block_dispatch" href="#">{{ __('Dispatch list') }}</a>
                 </li>
                 @can('admin', \App\Models\User::class)
                     <li class="nav-item">
-                        <a class="nav-link link_block" id="block_users" href="#">Пользователи</a>
+                        <a class="nav-link link_block" id="block_users" href="#">{{ __('Users') }}</a>
                     </li>
                 @endcan
             </ul>

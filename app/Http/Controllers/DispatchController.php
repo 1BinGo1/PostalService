@@ -19,7 +19,7 @@ class DispatchController extends Controller
         Dispatch::query()->create([
             'user_id' => auth()->user()->id,
             'track_code' => Miscellaneous::md5(),
-            'status' => 'expects',
+            'status' => 'Expects',
             'city_dispatch' => $request->input('city_dispatch'),
             'city_destination' => $request->input('city_destination'),
             'price' => $request->input('price'),

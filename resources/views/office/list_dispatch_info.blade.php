@@ -1,7 +1,7 @@
-@extends('layouts.app', ['title' => "Информация об отправлении"])
+@extends('layouts.app', ['title' => __('Information about dispatch')])
 
 @section('content')
-    <a href="{{ route('office.main') }}">Вернуться к списку отправлений</a><br><br>
-    <p>История отправлений трек-кода {{ $dispatch->track_code }}:</p>
+    <a href="{{ route('office.main') }}">{{ __('Go back to the list dispatch') }}</a><br><br>
+    <p>{{ __('Track code sending history') }} {{ $dispatch->track_code }}:</p>
     @livewire('search-dispatch-history', ['dispatch' => $dispatch])
 @endsection
