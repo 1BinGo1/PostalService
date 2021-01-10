@@ -1,6 +1,4 @@
 postal_service.sql
-.env
-.env.example
-.gitattributes
-storage/
+*.txt
+*.log
 
