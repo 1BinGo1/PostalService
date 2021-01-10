@@ -1,7 +1,7 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Laravel',
+    'name' => 'L_S',
     'env' => 'local',
     'debug' => true,
     'url' => 'http://localhost',
@@ -232,7 +232,7 @@
         'endpoint' => NULL,
       ),
     ),
-    'prefix' => 'laravel_cache',
+    'prefix' => 'l_s_cache',
   ),
   'cors' => 
   array (
@@ -331,7 +331,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'laravel_database_',
+        'prefix' => 'l_s_database_',
       ),
       'default' => 
       array (
@@ -473,6 +473,11 @@
       array (
         'path' => 'E:\\Programs\\OpenServer\\OSPanel\\domains\\postalService\\storage\\logs/laravel.log',
       ),
+      'maillog' => 
+      array (
+        'driver' => 'single',
+        'path' => 'E:\\Programs\\OpenServer\\OSPanel\\domains\\postalService\\storage\\mails/laravel.log',
+      ),
     ),
   ),
   'mail' => 
@@ -483,11 +488,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'mailhog',
-        'port' => '1025',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'host' => 'smtp.gmail.com',
+        'port' => '465',
+        'encryption' => 'ssl',
+        'username' => 'silntievaleksey853@gmail.com',
+        'password' => 'bpxqetsehyxslrti',
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -511,7 +516,7 @@
       'log' => 
       array (
         'transport' => 'log',
-        'channel' => NULL,
+        'channel' => 'maillog',
       ),
       'array' => 
       array (
@@ -520,8 +525,8 @@
     ),
     'from' => 
     array (
-      'address' => NULL,
-      'name' => 'Laravel',
+      'address' => 'silntievaleksey853@gmail.com',
+      'name' => 'L_S',
     ),
     'markdown' => 
     array (
@@ -529,6 +534,15 @@
       'paths' => 
       array (
         0 => 'E:\\Programs\\OpenServer\\OSPanel\\domains\\postalService\\resources\\views/vendor/mail',
+      ),
+    ),
+    'stream' => 
+    array (
+      'ssl' => 
+      array (
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true,
       ),
     ),
   ),
@@ -616,7 +630,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravel_session',
+    'cookie' => 'l_s_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,

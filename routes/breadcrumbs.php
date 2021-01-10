@@ -6,6 +6,11 @@ Breadcrumbs::for('home', function ($breadcrumbs) {
     $breadcrumbs->push(__('Main'), route('home'));
 });
 
+Breadcrumbs::for('feedback', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(__('Feedback'), route('feedback.index'));
+});
+
 Breadcrumbs::for('office.list_dispatch', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push(__('Dispatch list'), route('office.main'));

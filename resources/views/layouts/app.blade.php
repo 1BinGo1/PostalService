@@ -15,6 +15,8 @@
 
 @include('layouts.header')
 
+<section class="content">
+
     <div id="app">
         <main class="py-4" id="main">
             <div class="container">
@@ -32,11 +34,14 @@
         </main>
     </div>
 
+</section>
+
 @include('layouts.footer')
 
-    <script src="{{ asset('js/app.js') }}"></script>
-    @livewireScripts
-    @stack('scripts')
+
+<script src="{{ asset('js/app.js') }}"></script>
+@livewireScripts
+@stack('scripts')
 
 </body>
 </html>
