@@ -1,9 +1,8 @@
 @extends('layouts.app', ['title' => __('Edit profile')])
 
+@section('breadcrumbs', Breadcrumbs::render('profile.edit'))
+
 @section('content')
-    <a href="{{ route('profile.index') }}">{{ __('Back to profile') }}</a>
-    <br>
-    <h1>{{ __('Edit profile') }}</h1>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

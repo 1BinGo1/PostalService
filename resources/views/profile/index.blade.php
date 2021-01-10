@@ -1,7 +1,8 @@
 @extends('layouts.app', ['title' => __('Profile')])
 
+@section('breadcrumbs', Breadcrumbs::render('profile.index'))
+
 @section('content')
-    <a href="{{ route('home') }}">{{ __('Go back to the main page') }}</a><br><br>
     <div class="card">
         <div class="card-header">{{ __('Profile') }}</div>
         <div class="card-body text-dark">

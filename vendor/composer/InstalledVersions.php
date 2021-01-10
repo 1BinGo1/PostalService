@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '04745f0ec36039d725116b5ea810736469b3badb',
+    'reference' => 'eaf79c145244f5dbce807e7a241f1a424fc86455',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -64,6 +64,15 @@ private static $installed = array (
       array (
         0 => '*',
       ),
+    ),
+    'davejamesmiller/laravel-breadcrumbs' => 
+    array (
+      'pretty_version' => '5.3.2',
+      'version' => '5.3.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '99f92a706faefb5e1816caa96e877a0184509e5b',
     ),
     'dnoegel/php-xdg-base-dir' => 
     array (
@@ -503,7 +512,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '04745f0ec36039d725116b5ea810736469b3badb',
+      'reference' => 'eaf79c145244f5dbce807e7a241f1a424fc86455',
     ),
     'laravel/sail' => 
     array (

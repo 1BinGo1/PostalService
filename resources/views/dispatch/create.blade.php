@@ -1,9 +1,8 @@
 @extends('layouts.app', ['title' => __('Create new dispatch')])
 
+@section('breadcrumbs', Breadcrumbs::render('dispatch.create'))
+
 @section('content')
-    <a href="{{ route('home') }}">{{ __('Go back to the main page') }}</a>
-    <br><br>
-    <h1>{{ __('Create new dispatch') }}</h1>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

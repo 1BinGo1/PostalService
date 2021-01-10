@@ -27,9 +27,7 @@
                     <td>{{ $item->city_destination }}</td>
                     <td>{{ $item->price }}</td>
                     <td>
-                        <a href="{{ route('dispatch.edit', ['dispatch' => $item->id]) }}" class="btn btn-primary">{{ __('Edit') }}</a>
-                    </td>
-                    <td>
+                        <a href="{{ route('dispatch.edit', ['dispatch' => $item->id]) }}" class="btn btn-primary">{{ __('Edit') }}</a><br><br>
                         <form action="{{ route('dispatch.destroy', ['dispatch' => $item->id]) }}"
                               method="post" onsubmit="return confirm( {{ __('Remove this record?') }} )"
                               class="d-inline">

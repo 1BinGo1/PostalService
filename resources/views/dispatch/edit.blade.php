@@ -1,9 +1,8 @@
 @extends('layouts.app', ['title' => __('Edit dispatch')])
 
+@section('breadcrumbs', Breadcrumbs::render('dispatch.edit'))
+
 @section('content')
-    <a href="{{ route('office.main') }}">{{ __('Go back to the list dispatch') }}</a>
-    <br><br>
-    <h1>{{ __('Edit dispatch') }}</h1>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

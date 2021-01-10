@@ -121,6 +121,16 @@
     ),
     'password_timeout' => 10800,
   ),
+  'breadcrumbs' => 
+  array (
+    'view' => 'breadcrumbs::bootstrap4',
+    'files' => 'E:\\Programs\\OpenServer\\OSPanel\\domains\\postalService\\routes/breadcrumbs.php',
+    'unnamed-route-exception' => true,
+    'missing-route-bound-breadcrumb-exception' => true,
+    'invalid-named-breadcrumb-exception' => true,
+    'manager-class' => 'DaveJamesMiller\\Breadcrumbs\\BreadcrumbsManager',
+    'generator-class' => 'DaveJamesMiller\\Breadcrumbs\\BreadcrumbsGenerator',
+  ),
   'broadcasting' => 
   array (
     'default' => 'log',

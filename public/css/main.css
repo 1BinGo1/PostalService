@@ -1,0 +1,13 @@
+.hide-block{
+    display: none;
+}
+body{
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}

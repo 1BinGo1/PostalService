@@ -1,9 +1,8 @@
 @extends('layouts.app', ['title' => __('Create a new user')])
 
+@section('breadcrumbs', Breadcrumbs::render('profile.create'))
+
 @section('content')
-    <a href="{{ route('home') }}">{{ __('Go back to the main page') }}</a>
-    <br><br>
-    <h1>{{ __('Create a new user') }}</h1>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
